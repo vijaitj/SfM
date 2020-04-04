@@ -4,13 +4,13 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include "camera_pose.h"
-using namespace cv;
+
 
 class ImageData {
  public:
-    Mat img;
-    std::vector<KeyPoint> kp;
-    Mat desc;
+    cv::Mat img;
+    std::vector<cv::KeyPoint> kp;
+    cv::Mat desc;
     CameraPose cam;
     //
     
