@@ -3,28 +3,26 @@
 
 #include <opencv2/opencv.hpp>
 
-using namespace cv;
-
 class CameraPose {
 public:
     // Projection Mat
-    Mat P;
+    cv::Mat P;
     // Overall Transformation matrix
-    Mat T;
+    cv::Mat T;
     // Rotation matrix as axis angle + translation (for Bundle Adjustment (Ceres-Solver))
     double optVal[6];
     //Getters and Setters
-    Mat Trans();
-    Mat Rot();
-    Mat IncTrans();
-    Mat IncRot();
-    void SetTrans(Mat t);
-    void SetRot(Mat R);
+    cv::Mat Trans();
+    cv::Mat Rot();
+    cv::Mat IncTrans();
+    cv::Mat IncRot();
+    void SetTrans(cv::Mat t);
+    void SetRot(cv::Mat R);
     // Default Constructor
     CameraPose();
     // Constructor when internal parameters are known
     CameraPose( float f, float cx, float cy);
-    CameraPose( float f, float cx, float cy, Mat inc_R, Mat inc_t, Mat prev);
+    CameraPose( float f, float cx, float cy, cv::Mat inc_R, cv::Mat inc_t, cv::Mat prev);
     // Generate and return the projection matrix
     void CalculateProjectionMat();
     void FillOptValue();
